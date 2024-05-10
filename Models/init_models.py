@@ -60,7 +60,7 @@ def get_cnn_predict(image):
 
 
 def nima_pred(image):
-    img = Image.open(image)
+    img = Image.open(image).convert("RGB")
     img = np.array(img)
     x = np.expand_dims(img, axis=0)
     x = preprocess_input(x)
@@ -68,8 +68,8 @@ def nima_pred(image):
     return np.sum(scores * np.arange(1, 11, 1))
 
 def mobilenet_pred(image_path):
-    img = load_img(image_path, target_size=(224, 224)).convert("RGB")
-    img = img_to_array(img) / 255.
+    img = Image.open(image).convert("RGB")
+    img = np.array(img)
     img = img.reshape((1, 224, 224, 3))
     x = MN_model.predict(img)
     x = int(x*100) / 100
