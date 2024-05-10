@@ -59,10 +59,10 @@ def get_cnn_predict(image):
     return pred
 
 
-def nima_pred(img):
-    img = img.resize((224, 224))
-    x = img_to_array(img)
-    x = np.expand_dims(x, axis=0)
+def nima_pred(image):
+    img = Image.open(image)
+    img = np.array(img)
+    x = np.expand_dims(img, axis=0)
     x = preprocess_input(x)
     scores = nima.predict(x, batch_size=1, verbose=0)[0]
     return np.sum(scores * np.arange(1, 11, 1))
