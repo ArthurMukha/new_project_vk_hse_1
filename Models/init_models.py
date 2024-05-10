@@ -10,7 +10,7 @@ from keras.layers import Dropout, Dense
 from keras.saving import load_model
 from keras.applications.mobilenet import preprocess_input, MobileNet
 from tensorflow import convert_to_tensor
-from keras.utils import load_img
+from keras.utils import load_img, img_to_array
 
 class CNN(nn.Module):
     def __init__(self):
@@ -70,7 +70,7 @@ def nima_pred(image):
 
 def mobilenet_pred(image_path):
     img = load_img(image_path, target_size=(224,224))
-    img = np.array(img)
+    img = img_to_array(img)
     img = np.expand_dims(img, axis=0)
     # img = convert_to_tensor(img)
     x = MN_model(img)
