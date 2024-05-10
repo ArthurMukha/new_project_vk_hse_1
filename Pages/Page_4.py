@@ -36,10 +36,10 @@ with col2:
 
 with col3:
     st.header("MN")
-    if a:
-        if uploaded_file is not None:
-            ans = mobilenet_pred(uploaded_file)
-            st.write(ans)
+    # if a:
+    #     if uploaded_file is not None:
+    #         ans = mobilenet_pred(uploaded_file)
+    #         st.write(ans)
 
 with col4:
     st.header("WS")
