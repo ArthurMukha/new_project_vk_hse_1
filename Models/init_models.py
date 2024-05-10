@@ -68,7 +68,7 @@ def nima_pred(image):
     return np.sum(scores * np.arange(1, 11, 1))
 
 def mobilenet_pred(image_path):
-    img = Image.open(image_page).resize((224,224)).convert("RGB")
+    img = Image.open(image_path).resize((224,224)).convert("RGB")
     img = np.array(img)
     x = np.expand_dims(img, axis=0)
     x = MN_model.predict(img, batch_size=1)
