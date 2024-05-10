@@ -30,8 +30,8 @@ with col2:
     st.header("NIMA")
     if a:
         if uploaded_file is not None:
-            img_d = uploaded_file.getvalue()
-            ans = nima_pred(img_d)
+            # img_d = uploaded_file.getvalue()
+            ans = nima_pred(uploaded_file)
             st.write(round(ans, 2))
 
 
