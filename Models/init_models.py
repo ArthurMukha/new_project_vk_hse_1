@@ -47,7 +47,7 @@ nima = Model(nima.input, x)
 nima.load_weights('Models/nima_model.h5')
 
 def get_cnn_predict(image):
-    img = Image.open(image)
+    img = Image.open(image).resize((128, 128))
     img = img.convert('RGB')
     transform = transforms.Compose([
         transforms.Resize((128, 128)),
@@ -70,9 +70,8 @@ def nima_pred(image):
 def mobilenet_pred(image_path):
     img = Image.open(image_path).resize((224,224)).convert("RGB")
     img = np.array(img)
-    img = img.reshape((224, 224, 3))
     img = np.expand_dims(img, axis=0)
-    img = convert_to_tensor(img)
+    # img = convert_to_tensor(img)
     x = MN_model.predict(img)
     x = int(x*100) / 100
     return x
