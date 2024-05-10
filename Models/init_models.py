@@ -71,7 +71,7 @@ def mobilenet_pred(image_path):
     img = Image.open(image_path).resize((224,224)).convert("RGB")
     img = np.array(img)
     img = img.reshape((224, 224, 3))
-    img = np.expand_dims(img, axis=0)
+    # img = np.expand_dims(img, axis=0)
     x = MN_model.predict(img)
     x = int(x*100) / 100
     return x
