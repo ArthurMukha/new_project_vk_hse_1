@@ -72,6 +72,6 @@ def mobilenet_pred(image_path):
     img = np.array(img)
     img = np.expand_dims(img, axis=0)
     # img = convert_to_tensor(img)
-    x = MN_model.predict(img)
+    x = MN_model(img)
     x = int(x*100) / 100
     return x
