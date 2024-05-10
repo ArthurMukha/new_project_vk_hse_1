@@ -70,7 +70,7 @@ def nima_pred(image):
 def mobilenet_pred(image_path):
     img = Image.open(image_path).resize((224,224)).convert("RGB")
     img = np.array(img)
-    x = np.expand_dims(img, axis=0)
+    x = np.expand_dims(img, axis=0).reshape((1, 224, 224, 3))
     x = MN_model.predict(x)
     x = int(x*100) / 100
     return x
