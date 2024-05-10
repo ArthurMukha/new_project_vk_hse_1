@@ -17,7 +17,7 @@ choose = st.radio(
     #captions = ["?", "??", "???"])
 
 if choose == "Upload":
-    uploaded_file = st.file_uploader("Choose a file")
+    uploaded_file = st.file_uploader("Choose a file", type=['png', 'jpg'])
     if uploaded_file is not None:
         st.image(uploaded_file)
         output = get_cnn_predict(uploaded_file)
