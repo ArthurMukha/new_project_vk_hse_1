@@ -5,7 +5,6 @@ from Models.HEURISTIC import heurestic
 import numpy as np
 from Models.init_models import *
 import io
-from keras.utils import load_img, img_to_array
 
 
 
