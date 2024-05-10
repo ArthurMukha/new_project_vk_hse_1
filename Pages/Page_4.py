@@ -31,7 +31,7 @@ with col2:
     if a:
         if uploaded_file is not None:
             img_d = uploaded_file.getvalue()
-            ans = nima_pred(Image.open(io.BytesIO(img_d)).convert("RGB"))
+            ans = nima_pred(img_d)
             st.write(round(ans, 2))
 
 
